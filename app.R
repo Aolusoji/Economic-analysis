@@ -15,8 +15,12 @@ colnames(data) <- c("Year", "Country", "GDP_Growth", "Trade_GDP", "Population_Gr
 
 # Define UI
 ui <- dashboardPage(
-  dashboardHeader(title = "Economic Growth and Trade Analysis"),
+  dashboardHeader(
+    title = tags$span("Economic Growth and Trade Analysis", style = "font-size: 16px; font-weight: bold;"),
+    titleWidth = 350
+  ),
   dashboardSidebar(
+    width = 350,  # match the title width to avoid misalignment
     sidebarMenu(
       menuItem("Visualization", tabName = "dashboard", icon = icon("dashboard")),
       menuItem("Analysis", tabName = "analysis", icon = icon("chart-pie"))
@@ -120,3 +124,4 @@ server <- function(input, output, session) {
 
 # Run the application
 shinyApp(ui = ui, server = server)
+
